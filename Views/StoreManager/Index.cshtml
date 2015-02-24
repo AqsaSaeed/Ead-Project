@@ -1,0 +1,114 @@
+﻿@model IEnumerable<EadtermProject08.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length) {
+        @input
+    } else {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div style="width:1000px; ">
+<h2  style="margin-left:250px;">
+    @Html.ActionLink("Create New", "Create")
+</h2>
+<table   style="width:800px; margin-left:100px;">
+    <tr>
+        <th>
+            Category
+        </th>
+        <th>
+            Brand
+        </th>
+        <th>
+            Title
+        </th>
+        <th >
+            Price
+        </th>
+        <th >
+            Quantity
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.category.Name
+          
+        </td>
+        <td>
+            @item.brand.Name
+           
+        </td>
+        <td>
+            @Truncate(item.Title,25)
+          
+        </td>
+        <td>
+            @item.Price
+           </td>
+        @if(item.Productcount == 0)
+        {
+            <td  style="background-color:red;">
+            
+                    
+            @item.Productcount
+        </td>
+        }
+        else if(item.Productcount <= 3)
+        {
+            <td  style="background-color:yellow;">
+            
+                    
+            @item.Productcount
+        </td>
+        }
+        else
+        {
+            <td >
+            
+                    
+            @item.Productcount
+        </td>
+        }
+        
+        <td>
+
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

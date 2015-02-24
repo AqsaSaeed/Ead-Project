@@ -1,0 +1,21 @@
+﻿@model EadtermProject08.Models.Product
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Confirmation</h2>
+
+<p>Are you sure you want to delete the Product titled 
+   <strong>@Model.Title</strong>?
+</p>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+}

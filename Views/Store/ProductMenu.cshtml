@@ -1,0 +1,12 @@
+﻿@model IEnumerable<EadtermProject08.Models.Category>
+
+<ul id="categories">
+    @foreach (var Item in Model)
+    {
+        <li>
+            @Html.ActionLink(Item.Name, 
+                "Browse", "Store", 
+                new { category = Item.Name }, null)
+        </li>
+    }
+</ul>

@@ -1,0 +1,24 @@
+﻿@model List<EadtermProject08.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="text-align:center; width:1100px;" >
+    
+    <img   width="1050px" height="300px" src="/content/Images/images.jpg" />
+</div>
+<h3><em>New</em> Products</h3>
+
+<ul id="album-list">
+    @foreach (var items in Model)
+    {
+        <li><a href="@Url.Action("Details", "Store",
+                new { id = items.ProductId })">
+
+            <img alt="@items.Title" src="@items.imageUrl" />
+            <span>@items.Title</span> </a>
+        </li>
+    }
+</ul>
+
