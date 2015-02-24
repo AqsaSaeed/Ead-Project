@@ -1,0 +1,47 @@
+﻿@model EadtermProject08.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Product Details</h2>
+    
+    <table border="1" style="width:500px; border:double";>
+
+        <tr>
+            <td>Categor</td>
+            <td> @Model.category.Name </td>
+        </tr>
+        <tr><td>Brand</td><td>@Model.brand.Name</td></tr>
+        <tr><td>Title</td><td>@Model.Title</td></tr>
+        <tr><td>Price</td><td>@Model.Price</td></tr>
+        <tr><td>Quantity</td><td>@Model.Productcount</td></tr>
+      <tr>  <td>Image</td><td><img src="@Model.imageUrl" width="100px" height="100px" /></td></tr>
+    </table>
+   
+@*
+    <div class="display-label">Artist</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artist.Name)
+    </div>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">AlbumArtUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AlbumArtUrl)
+    </div>*@
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

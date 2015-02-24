@@ -1,0 +1,23 @@
+﻿@model  IEnumerable<EadtermProject08.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 style="margin-bottom:20px; text-align:center;">
+  Select  for Online Shopping</h1>
+<h3>Selection By Category</h3>
+<ul>
+ @foreach (var category in Model)
+ {
+     <li><h5>@Html.ActionLink(category.Name, "Browse", new { category = category.Name })</h5></li>     
+ }
+</ul><br />@*<h3>Selection By Brands</h3><ul>
+ @foreach (EadtermProject08.Models.Brand item in ViewBag.Brandtype)
+ {
+     
+     <li><h5>@Html.ActionLink(item.Name, "Brands", new { category = item .Name })</h5></li>     
+ }
+</ul>*@

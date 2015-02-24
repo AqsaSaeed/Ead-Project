@@ -1,0 +1,29 @@
+﻿@model EadtermProject08.Models.Category
+
+@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center;">Brands: @Model.Name  Products</h1>
+
+
+
+
+<div class="genre">
+ @*<h1><em>@Model.Name</em> Products</h1>*@
+ <ul id="album-list">
+ @foreach (var album in Model.Product)
+ {
+     if(album.Productcount > 0)
+     {
+ <li>
+ <a href="@Url.Action("Details", new { id = album.ProductId })">
+ <img width="100" height="75" alt="@album.Title" src="@album.imageUrl" />
+ <span>@album.Title</span>
+ </a>
+ </li>
+     }
+ }
+ </ul>
+</div>

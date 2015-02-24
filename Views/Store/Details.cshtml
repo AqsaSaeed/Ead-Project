@@ -1,0 +1,32 @@
+﻿@model EadtermProject08.Models.Product
+@{
+    ViewBag.Title = "Product" + Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-left:100px; ">
+<h2 >@Model.Title</h2>
+
+<p >
+    <img width="230" height="230" alt="@Model.Title" src="@Model.imageUrl" />
+</p>
+
+<div  id="album-details">
+    <p>
+        <em>Category:</em>
+        @Model.category.Name
+    </p>
+    <p>
+        <em>Brand:</em>
+        @Model.brand.Name
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}", Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart", 
+        "ShoppingCart", new { id = Model.ProductId }, "")
+    </p>
+</div>
+   </div>
